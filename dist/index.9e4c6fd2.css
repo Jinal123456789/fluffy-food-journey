@@ -1,0 +1,285 @@
+body {
+  margin: 0;
+}
+
+.header {
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  box-shadow: 10px 10px 10px #cfcfcf99;
+}
+
+.header svg {
+  padding: 10px;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+button.btnLogin {
+  background-color: #fc8019;
+  border: 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.nav-items ul {
+  justify-content: space-between;
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-items ul li {
+  color: #000;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.searchInput {
+  margin-top: 30px;
+}
+
+input.searchInput {
+  border: 2px solid #000;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button.bttn-search {
+  color: #000;
+  border: 2px solid #000;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.card-content {
+  min-width: 1000px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  width: 200px;
+  height: 500px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px #cfcfcf99;
+}
+
+.allCard a {
+  text-decoration: none;
+}
+
+.card h2 {
+  color: #000;
+  font-size: 16px;
+}
+
+.card h3 {
+  font-size: 14dppx;
+  color: #000;
+}
+
+.card h4 {
+  color: #000;
+  font-size: 12px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.allCard {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.searchBar {
+  margin: 10px;
+}
+
+.srestaurant-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 1000px;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px #cfcfcf99;
+}
+
+img.logo {
+  width: 10%;
+  height: 100%;
+}
+
+ul.menuDesign {
+  padding: 30px 0;
+}
+
+.menuCard {
+  padding-top: 30px;
+}
+
+li.menuList {
+  justify-content: space-between;
+  padding: 30px 0;
+  display: flex;
+}
+
+li.menuList img {
+  border-radius: 30px;
+  width: 200px;
+  height: 200px;
+}
+
+.restCard h1 {
+  text-align: center;
+}
+
+.restUpper {
+  justify-content: space-between;
+  min-width: 1000px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 0;
+  display: flex;
+}
+
+.restCard {
+  min-width: 800px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.menuName {
+  margin: 10px 0;
+}
+
+.menuDes {
+  color: #d3d3d3;
+  margin: 30px 0;
+}
+
+.menuList {
+  border-bottom: .5px solid #d3d3d3;
+  margin: 20px 0;
+}
+
+.menuList.last-item {
+  border-bottom: 0;
+  margin: 20px 0;
+}
+
+.main_border__1Cc4a {
+  border-bottom: 16px solid #f1f1f6;
+  height: 16px;
+}
+
+img.upperImg {
+  border-radius: 50px;
+  display: flex;
+}
+
+.footerMain {
+  color: #fff;
+  background-color: #000;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  margin: 30px 0 0;
+  padding: 0 17.5% 7rem;
+  font-size: 16px;
+  display: grid;
+}
+
+.firstFooter, .seconFooter, .thirdFooter, .forthFooter {
+  margin: 30px auto;
+}
+
+.popup {
+  z-index: 1;
+  background-color: #0006;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.popup-inner {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 40%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #000000bf;
+}
+
+.popup-inner h2 {
+  margin-top: 0;
+}
+
+.popup-inner label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.popup-inner input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.popup-inner button[type="submit"], .popup-inner button[type="button"] {
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.popup-inner button[type="submit"]:hover, .popup-inner button[type="button"]:hover {
+  background-color: #45a049;
+}
+
+.popup-inner button[type="submit"] {
+  margin-top: 20px;
+}
+
+.popup-inner button[type="button"] {
+  background-color: #f44336;
+  margin-top: 20px;
+}
+
+.popup-inner button[type="button"]:hover {
+  background-color: #da190b;
+}
+
+.popup-inner button[type="submit"]:disabled, .popup-inner button[type="button"]:disabled {
+  color: #fff;
+  cursor: not-allowed;
+  background-color: #bfbfbf;
+}
+
+/*# sourceMappingURL=index.9e4c6fd2.css.map */

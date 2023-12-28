@@ -1,0 +1,186 @@
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
+import Header from "./component/header.js";
+import Footer from "./component/footer.js";
+import {IMG_CDN_URL} from "./component/config.js";
+import {restaurantList} from "./component/config.js";
+import RestrauntCard from "./component/body.js";
+import Shimmer from "./component/simmer.js";
+
+
+
+const styleobj = {
+  backgroundColor : "red",
+}
+function filterData(searchText,Allrestaurant) {
+
+  const filterData = Allrestaurant.filter((restaurant) => restaurant.info.name.includes(searchText));
+  // const filterData = restaurantList.filter((restaurant) => restaurant.first_.name.includes(searchText));
+
+  return filterData;
+}
+const Body = () =>{
+  // let searchText = "KFC";
+  const [searchText,setSearchText] = useState("KFC");
+  const [restaurants,searchRestaurant] = useState([]);
+  const [Allrestaurant, setAllrestaurant] = useState([]);
+  console.log(restaurants,"datakkk");
+  // const [searchClicked, setSearchClicked] = useState("true");
+  useEffect(()=>{
+    getRestaurants();
+  },[]);
+
+  async function getRestaurants() {
+    // try{
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5645175&lng=72.928871&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+    // const data = await fetch("https://reqres.in/api/users?page=2")
+    const json = await data.json();
+    console.log(json.data?.cards);
+    // optional chaining
+    setAllrestaurant(json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    searchRestaurant(json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+    // searchRestaurant(json.data);
+    console.log(json.data);
+  // } catch (error) {
+  //   console.error('Error fetching initial data:', error);
+  // }
+}
+
+
+  console.log("render");
+
+  return(restaurants && restaurants.length === 0 ) ? <Shimmer/> : (
+    // return(
+    <>
+    {/* console.log(restaurants.length); */}
+    <div className="searchBar">
+      <input type="text" className="searchInput" value={searchText} 
+      onChange={(e)=>{
+        setSearchText(e.target.value);
+      }}></input>
+      <button className="bttn-search" 
+      onClick={()=>{
+        const data = filterData(searchText,Allrestaurant) ;
+        searchRestaurant(data);
+        // need to filter the data
+        // update the state - restaurant
+      }}> SEARCH</button>
+      {/* <button className="bttn-toggle" 
+      onClick={()=>{
+        (searchClicked === "true") ? setSearchClicked("false") : setSearchClicked("true") ;
+      }}> SEARCH</button> */}
+    </div>
+    {/* <h1>{searchClicked}</h1> */}
+    <div className="allCard">
+    {/* <h1>body</h1> */}
+    {/* <RestrauntCard restaurant={restaurantList[0]}/>
+    <RestrauntCard restaurant={restaurantList[1]}/>
+    <RestrauntCard restaurant={restaurantList[2]}/> */}
+    {/* <RestrauntCard {...restaurantList[0].info}/>
+    <RestrauntCard {...restaurantList[1].info}/>
+    <RestrauntCard {...restaurantList[2].info}/> */}
+
+    {/* you can also use loop to make it dynamic but we usually use map function for that or you can also use foreacch loop find that difference also */}
+
+    {/* using map */}
+    {restaurants.map((resaturant) => {
+      return <RestrauntCard {...resaturant.info} key={resaturant.info.id}/>;
+    }
+    )}
+    {/* {restaurants.map((resaturant) => {
+      return <RestrauntCard {...resaturant} key={resaturant.id}/>;
+    }
+    )} */}
+    
+    </div>
+    </>
+  )
+  
+}
+
+const ApplayOut = () => {
+  return(
+    <>
+    <Header/>
+    <Body/>
+    <Footer/>
+    </>
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<ApplayOut/>);
+
+
+// example codes
+
+// const Heading = () => (
+//   <div>
+//   <h1> React </h1>
+//   <h1>
+//     hello functional component
+//   </h1>
+//   </div>
+//   );
+
+// const element = (
+// <div>
+//   <h1> hello element</h1>
+// </div>
+// )
+
+// const Filecomp = ()=>{
+//   return(
+//     <div style={styleobj}> {/*this is how you can give inline css*/}
+//     <div style={{
+//         backgroundColor : "red", 
+//     }}></div>         {/* you can also give inline css like this */}
+//       <Heading/>    {/* This is called component composition or composing components */}
+//       {element}
+//       {/* {console.log(2+2)} */}
+//       {/* {console.log(2+2)   /* you can write js into {} */} 
+//       <h1> file component</h1>
+//       <h2> this is h2 tag</h2>
+//     </div>
+//   )
+// }
+
+// const header = React.createElement(
+//     "h1",
+//     {
+//       id: "title",
+//     },
+//     "Namste canada give me a job"
+//   );
+
+//   const heading1 = React.createElement(
+//     "h1",
+//     {
+//       id: "title",
+//       key:"h1"
+//     },
+//     "heading1"
+//   );
+
+//   const heading2 = React.createElement(
+//     "h1",
+//     {
+//       id: "title", 
+//       key:"h2"
+//     },
+//     "heading2"
+//   );
+
+//   const container = React.createElement(
+//     "div",
+//     {
+//       id: "container",
+//     },
+//     [heading1, heading2]
+//   );
+  // console.log(container);
+
+
+  // const root = ReactDOM.createRoot(document.getElementById("root"));
+  //passing a react element inside a root
+  // root.render(header);
